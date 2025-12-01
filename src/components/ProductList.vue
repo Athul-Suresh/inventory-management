@@ -1,10 +1,24 @@
 <template>
   <div>
-    <h1>Products list</h1>
+    <h1 class="text-2xl text-black underline">Products list</h1>
 
-    <ul>
-      <li v-for="product in products" :key="product?.id">{{ product?.name }}</li>
-    </ul>
+    <div>
+      <div
+        class="max-w-sm rounded overflow-hidden shadow-lg"
+        v-for="product in products"
+        :key="product?.id"
+      >
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2">{{ product?.name }}</div>
+          <p class="text-gray-700 text-base">
+            {{ product?.description }}
+          </p>
+          <button @click="updateProduct" class="border rounded p-1 bg-orange-500">Edit</button>
+        </div>
+      </div>
+    </div>
+
+    <button class="border rounded bg-blue-500 mt-5 p-1" @click="updateStock">Update Stock</button>
   </div>
 </template>
 
@@ -26,4 +40,7 @@ const fetchProducts = () => {
     })
     .catch((error) => console.log(error))
 }
+
+const updateStock = () => {}
+const updateProduct = () => {}
 </script>
